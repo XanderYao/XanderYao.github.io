@@ -1,35 +1,117 @@
-
-img, p, h1, h2, .divider {
-	width: 100%;
-	max-width: 640px;
-    margin-left: auto;
-	margin-right: auto;
+/* UIUC 官方配色变量 */
+:root {
+    --uiuc-navy: #13294b;
+    --uiuc-orange: #ff5f05;
+    --bg-gray: #f9f9f9;
 }
 
-img {
-	display: block;
-    padding: 15px 0px;
-    
+body {
+    background-color: var(--bg-gray);
+    margin: 0;
+    padding: 0;
+    color: #333;
 }
 
+/* 容器居中与宽度控制 */
+.hero, .content {
+    width: 90%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
 
+/* 标题样式 */
+h1 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-size: 42px;
+    line-height: 1.1;
+    color: var(--uiuc-navy);
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 28px;
+    color: var(--uiuc-navy);
+    border-left: 5px solid var(--uiuc-orange);
+    padding-left: 15px;
+    margin-top: 50px;
+}
+
+/* 正文样式 */
 p {
-	font-size: 18px;
-	line-height: 1.4;
-    font-family: "Crimson Text";
+    font-size: 19px;
+    line-height: 1.6;
+    font-family: "Crimson Text", serif;
+    margin-bottom: 25px;
 }
 
+.author {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    color: var(--uiuc-orange);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
 
-h1, h2 { 
-    font-family: "Roboto";
-    }
-
+/* 蓝色分割线 */
 .divider {
-    height: 2px;
-    background-color: #0868ac;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    height: 4px;
+    background-color: var(--uiuc-navy);
+    width: 80px;
+    margin: 20px 0;
+}
 
-    }
-        
-    
+/* 图片处理 */
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.caption {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* D3 图表预留区域 */
+#myChart {
+    width: 100%;
+    height: 400px;
+    background: white;
+    margin-top: 30px;
+    border: 1px solid #ddd;
+}
+
+#myTooltip {
+    position: absolute;
+    padding: 8px;
+    background: white;
+    border: 1px solid var(--uiuc-navy);
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.slideshow-container {
+    width: 100%;
+    max-width: 720px; /* 设为 720px 就会跟你的标题和正文完全对齐 */
+    height: auto !important; /* 👈 让高度自动 */
+    margin: 0 auto 30px auto;
+}
+
+.slideshow-container img {
+    width: 100% !important;
+    height: auto !important; /* 👈 关键：不强制高度，图片比例就不会错 */
+    object-fit: contain;     /* 👈 确保图片完整显示 */
+    border-radius: 8px;      /* 保持你喜欢的圆角 */
+}
+

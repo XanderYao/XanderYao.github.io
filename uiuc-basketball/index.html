@@ -1,26 +1,63 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>My cool DATA 1500 project</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    </head>    
-    <body>
-        <p>Xiaoqing Yao</p>
-        <h1>My project it about UIUC basketball team which had a wonderful season with Final Four.</h1>
-        <div class ="divider"></div>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy 
-            text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-             recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-        <img src = "images/rhode_island.png",
-        alt = "100% stacked area chart of the population share of the five counties of Rhode Island, showing that Providence's share declined starting around WWII."
-        >
-        <h2>About this story</h2>
-        <p>Here’s a <a href="https://www.brown.edu/">link</a>.</p>
-        <img src = "images/fig1.png">
-    </body>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>UIUC Basketball Analytics</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>    
+<body>
+    <div class="slideshow-container" style="max-width: 720px; height: auto; margin: 0 auto 30px auto; overflow: hidden; position: relative; border-radius: 8px;">
+    
+        <div class="mySlides fade" style="display: block;">
+            <!-- 这里的图片去掉 height: 100%，改为宽度 100% 自动撑开高度 -->
+            <img src="images/sfc.jpg" style="width: 100%; height: auto; display: block;" alt="State Farm Center">
+        </div>
+    
+    </div>
+    <header class="hero">
+        <p class="author">By Xiaoqing Yao</p>
+        <h1>More Than Luck: Quantifying the Efficiency Behind the Fighting Illini’s Historic Season</h1>
+        <div class="divider"></div>
+        <p class="intro-text">
+            For the University of Illinois' Fighting Illini team, the 2025-26 season is not just a rebuilding year but a textbook case of rapid evolution. As an alumnus of UIUC, having lived in Champaign for two years, I was deeply inspired by the rich sports culture at the State Farm Center, and this emotional connection remains deeply rooted in my heart. My background in statistics during my undergraduate years once led me to attempt to provide analytical support for the school's baseball team using R language. That experience made me realize that when professional knowledge is combined with passion, it can bring about a tremendous sense of achievement. In the 2025-26 season, with the departure of NBA picks like Kasparas Jakucionis and Will Riley, this team, dominated by freshmen, faces a huge transformation challenge, which also provides an excellent "natural experiment" field for sports data analysis. 
+This project utilized a comprehensive dataset from Sports-Reference, integrating official statistics from the NCAA. Through these metrics, I will analyze the performance of this team this season from three perspectives: individual players, the team's overall performance, and the influence of the program's history. 
+        </p>
+    </header>
+
+    <article class="content">
+        <section>
+            <h2>Section 1: Individual Impact & Workload Analysis</h2>
+            <p>The primary task of the analysis is to identify the core driving force of the team. In a lineup dominated by freshmen, maintaining high efficiency while ensuring a high workload is a huge challenge. </p>
+            <img src="images/personal.png" alt="Keaton Wagler Performance Chart">
+            <p> As shown in chart above, I compared the average minutes played (MP) with the average game score contribution (GmSc). The results indicate that Keaton Wagler firmly occupies the top right "high-load, high-impact" elite quadrant. Not only does he lead the team in average minutes played (close to 35 minutes), but his GmSc also remains at an extremely high level of around 15.0. The size of the bubbles (total points scored in the season) visually demonstrates that he is the team's undisputed offensive cornerstone. 
+                Although players like David Mirkovic and Andrej Stojakovic provided necessary support on the court, Keaton Wagler's "consistent and efficient" performance answered my first research hypothesis: UIUC's success is indeed highly "Wagler-dependent". He is not only the offensive finisher but also the tactical anchor of the entire team, providing the competitive ceiling needed for this inexperienced squad to break into top-tier events. Keaton Wagler is also one of the freshmen who can score 40+ points this season. Multiple draft prediction websites have ranked him within the lottery range. </p>
+
+        </section>
+
+        <section>
+            <h2>Section 2: Home-Court Advantage & Venue Resilience</h2>
+            <p>Basketball games are never played in a vacuum, especially in the highly competitive Big Ten Conference, where playing on the road often means facing immense pressure. I calculated the percentage differences in various metrics between home and away games to quantify what is known as the "home court advantage."</p>
+            <img src="images/Rplot01.png" alt="Home Court Advantage Chart">
+            <p>The findings in chart above are highly enlightening. The home environment has the most significant impact on rebounds (11.4%) and assists (10.7%). This confirms that the passionate atmosphere at the State Farm Center can indeed significantly boost players' enthusiasm in rebounding and ball sharing. Meanwhile, the free throw percentage (0.02%) shows a strong immunity to the environment with almost no fluctuation, reflecting the solid psychological quality of this young team. 
+                It is worth noting that steals (-1.7%) is the only metric that slightly declined at home. This minor drop might suggest that the team prefers to leverage their height advantage for a more stable zone defense at home rather than taking risks with steals. The increase in home turnovers (6.4%), on the other hand, indicates that the team tends to play a more aggressive and fast-paced offense at home. This normalized analysis of environmental impact explains why they remain competitive in the neutral court.</p>
+        </section>
+
+        <section>
+            <h2>Section 3: Historical Standing & SRS Performance</h2>
+            <p>Finally, we need to place this team in the context of the University of Illinois' basketball history during almost 80 years. </p>
+            <img src="images/Rplot02.png" alt="Historical SRS Ranking">
+            <p>Through the SRS (Simple Rating System) metric, which combines margin of victory and strength of schedule (SOS), Figure 3 reveals a fact worthy of being recorded in history: the team in the 2025-26 season ranked first in SRS score in the team's history. 
+                Even when compared to the legendary 2004-05 season, which claimed the runner-up position in the nation, or the renowned "Flyin' Illini" of 1988-89, the 2025-26 season demonstrated a superior dominance in the face of the modern high-intensity schedule. Although they narrowly lost in the national semi-finals, the statistics prove that this team, led by freshmen, has reached a competitive height in the school's history. </p>
+        </section>
+
+        <section class="conclusion">
+            <h2>Conclusion:</h2>
+            <p>This analysis has taken us from the micro-level of individual player performance to a macro-level overview of the team's history. The data validates the intuition I felt from the stands: the beauty of sports exists not only in the games on the court, but also in the logical framework behind of the games. With a record-breaking performance, this young Illinois squad has set a brand new benchmark in the 2025–26 season.</p>
+            <p>Source: <a href="https://www.sports-reference.com/cbb/schools/illinois/men/2026.html" target="_blank">Basketball-Reference</a> & NCAA Official Statistics</p>
+    </article>
+</body>
 </html>
